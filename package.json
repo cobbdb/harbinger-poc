@@ -1,0 +1,12 @@
+{
+  "name": "harbinger-poc",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cobbdb/harbinger-poc.git"
+  },
+  "author": "Dan Cobb <dan.cobb@coxinc.com>",
+  "homepage": "https://github.com/cobbdb/harbinger-poc#readme"
+}

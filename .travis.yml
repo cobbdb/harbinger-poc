@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "5"
+notifications:
+  email: false
+before_install:
+  - npm install -g grunt-cli
+install:
+  - npm install
+script:
+  - grunt
