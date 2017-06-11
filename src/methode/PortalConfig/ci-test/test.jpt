@@ -1,0 +1,4 @@
+<p:currentObject meta="meta" />
+<p:out var="title" xvalue="$meta//title" />
+
+<h1>Tital is: ${title}</h1>
