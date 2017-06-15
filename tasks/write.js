@@ -1,6 +1,6 @@
 var fs = require('fs'),
     glob = require('glob'),
-    hosts = require('./util/hosts.json'),
+    hosts = require('./http/hosts.json'),
     writeFile = require('./util/write-file.js');
 
 module.exports = function (grunt) {
@@ -25,34 +25,14 @@ module.exports = function (grunt) {
                         }
                     }
 
-                    /*writeFile({
-                        host: hosts.dev.address,
-                        path: '/PortalConfig/ci-test',
-                        method: 'MKCOL',
-                        success: function (res) {
-                            grunt.log.ok(res.statusCode, res.statusMessage, '-', '/PortalConfig/ci-test');
-                            done();
-                        },
-                        error: function (err) {
-                            grunt.log.error(err);
-                            done();
-                        }
-                    });*/
-
                     files.forEach(function (path) {
                         path = '/' + path;
-                        writeFile({
+                        writeFile(grunt, {
                             host: hosts.dev.address,
                             path: path,
-                            data: grunt.file.read('src/methode/' + path),
-                            success: function (res) {
-                                grunt.log.ok(res.statusCode, res.statusMessage, '-', path);
-                                checkComplete();
-                            },
-                            error: function (err) {
-                                grunt.log.error(err);
-                                checkComplete();
-                            }
+                            data: grunt.file.read('src/methode' + path),
+                            success: checkComplete,
+                            error: checkComplete
                         });
                     });
                 }
