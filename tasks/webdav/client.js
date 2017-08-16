@@ -6,7 +6,7 @@ var createClient = require('webdav'),
 /**
  * @param {string} env Can be one of `dev`, `qa`, `staging`, `prod`, `training`.
  */
-module.exports = function (env) {
+module.exports = (env) => {
     cache[env] = cache[env] || createClient(hosts[env], auth.username, auth.password);
     return cache[env];
 };
